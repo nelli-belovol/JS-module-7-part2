@@ -1,0 +1,131 @@
+.mobile-menu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: var(--main-cl);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 2px 4px rgba(0, 0, 0, 0.08), 0px 1px 3px rgba(0, 0, 0, 0.16);
+  padding-top: 48px;
+  padding-right: 83px;
+  padding-left: 40px;
+  padding-bottom: 48px;
+  z-index: 97;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.is-open {
+    left: 0;
+  }
+}
+
+.mobile-menu__btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 98;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    fill: var(--accent-cl);
+  }
+}
+
+.menu-btn__icon-close {
+  display: none;
+
+  .is-open & {
+    display: block;
+  }
+}
+
+.is-open .menu-btn__icon-menu {
+  display: none;
+}
+
+.is-open .mobile-menu__btn:hover,
+.is-open .mobile-menu__btn:focus {
+  fill: var(--accent-cl);
+}
+
+.nav__item--mobile:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+.nav__link--mobile {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.175;
+}
+
+.nav__link--mobile-active {
+  color: var(--accent-cl);
+}
+
+.contacts__item--mobile:nth-child(1) {
+  margin-bottom: 30px;
+}
+
+.contacts__item--mobile:nth-child(2) {
+  margin-bottom: 64px;
+}
+
+.contacts__link--mobile {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.17;
+  letter-spacing: 0.02em;
+  color: var(--contacts-link-cl);
+
+  &-tel {
+    @extend .contacts__link--mobile;
+    font-size: 34px;
+    line-height: 1.18;
+    color: var(--accent-cl);
+  }
+}
+
+.social__list--mobile {
+  display: flex;
+
+  @media screen and (max-width: 479px) {
+    flex-direction: column;
+  }
+}
+
+.social__item--mobile:not(:last-child) {
+  padding-right: 10px;
+  border-right: 1px solid var(--border-form);
+}
+
+.social__item--mobile:not(:first-child) {
+  padding-left: 10px;
+
+  @media screen and (max-width: 479px) {
+    padding-right: 0;
+    padding-left: 0;
+    padding-top: 10px;
+    border: none;
+  }
+}
+
+.social__link--mobile {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: 0.02em;
+  color: var(--accent-cl);
+}
