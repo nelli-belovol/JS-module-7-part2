@@ -170,3 +170,7 @@
   letter-spacing: 0.03em;
   color: var(--main-txt-cl);
 }
+
+.filter__btn.activeBtn {
+  background-color: green;
+}

@@ -91,7 +91,7 @@ const footerLogo = headerLogoLink.cloneNode(false) // true - со всеми д�
 // footerLogoParent.innerAdjacentHTML("beforeend", footerAddress)
 
 // remove elements
-//через родителя и уудаление самого элемента
+//через родителя и удаление самого элемента
 const slWrapper = document.querySelector('.follow')
 console.log(slWrapper)
 const slTitle = document.querySelector('.follow__title')

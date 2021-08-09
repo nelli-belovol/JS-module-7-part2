@@ -1,73 +1,51 @@
-// <ul class="social">
-//   <li class="social__item">
-//     <a class="link social__link social-link--grey" href="https://instagram.com">
-//       <svg width="20px" height="20px" class="social__icon">
-//         <use href="./images/icons.svg#icon-instagram"></use>
-//       </svg>
-//     </a>
-//   </li>
-//   <li class="social__item">
-//     <a class="link social__link social-link--grey" href="" target="_blank" rel="noopener noreferrer">
-//       <svg width="20px" height="20px" class="social__icon">
-//         <use href="./images/icons.svg#icon-twitter"></use>
-//       </svg>
-//     </a>
-//   </li>
-//   <li class="social__item">
-//     <a class="link social__link social-link--grey" href="" target="_blank" rel="noopener noreferrer">
-//       <svg width="20px" height="20px" class="social__icon">
-//         <use href="./images/icons.svg#icon-facebook"></use>
-//       </svg>
-//     </a>
-//   </li>
-//   <li class="social__item">
-//     <a class="link social__link social-link--grey" href="" target="_blank" rel="noopener noreferrer">
-//       <svg width="20px" height="20px" class="social__icon">
-//         <use href="./images/icons.svg#icon-linkedin"></use>
-//       </svg>
-//     </a>
-//   </li>
-// </ul>
-import data from '../db/socials-links-info.js'
+import data from '../db/social-links-info.js'
+// console.log(data)
 
-function createElement(arr) {
-  //ul
-  const ulList = document.createElement('ul')
-  //li
+function createSocialListLinks(arr) {
+  // ul
+  const list = document.createElement('ul')
+  list.className = 'socials-list list'
+  // li
+  //   console.log(arr)
   const items = arr.map(elem => {
-    const item = document.createElement('li')
-    console.log(item)
-    item.className = elem.class
-    console.log(item.classList)
-    //a
-    const link = document.createElement('a')
-    //href="#"
-    link.setAttribute('href', elem.link.href)
-    //class = "link"
-    link.classList.add(elem.link.class)
-    //aria-label = "ссылка на instagram"
-    link.setAttribute('aria-label', elem.link.arialabel)
+    // console.log(elem)
+    // console.log(elem.class)
 
-    //svg
+    const item = document.createElement('li')
+    item.className = elem.class
+    // console.log(item.classList)
+    // a
+    const link = document.createElement('a')
+    // console.log(link)
+    // href="#"
+    link.setAttribute('href', elem.link.href)
+    // class="link"
+    link.classList.add(elem.link.class)
+    // aria-label="ссылка на instagram"
+    link.setAttribute('aria-label', elem.link.ariaLabel)
+    // console.log(item)
 
     const icon = document.createElement('svg')
-    icon.classList(elem.icon.class)
-
+    icon.classList.add(elem.icon.class)
+    const { href } = elem.icon
+    // svg
+    // class="footer-icon"
     // use
-    const iconUse = document.createElement('use')
-    icon.setAttribute('href', elem.icon.href)
-
-    // теперь все встраиваем друг в друга согласно разметке
-    item.append(link)
+    // href="./images/sprint.svg#icon-instagram"
+    const svg = `<svg class="footer-icon"><use href=${href}></use></svg>`
+    // теперь все встраиваем друг в друга, согласно разметке
+    icon.insertAdjacentHTML('afterbegin', svg)
     link.append(icon)
-    icon.append(iconUse)
+    item.append(link)
+    return item
   })
-
-  return items
+  // console.log(items)
+  list.append(...items)
+  return list
 }
+const list = createSocialListLinks(data)
+console.log(list)
 
-const items = createItems(data)
 const slWrapper = document.querySelector('.sl-wrapper')
-slWrapper.append(...items)
-
-//class
+console.log(slWrapper)
+slWrapper.append(list)

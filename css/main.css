@@ -1702,6 +1702,10 @@ body.is-open {
   color: var(--main-txt-cl);
 }
 
+.filter__btn.activeBtn {
+  background-color: green;
+}
+
 .footer {
   background-color: var(--dark-bg-cl);
   padding-top: 60px;
