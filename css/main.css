@@ -1706,6 +1706,10 @@ body.is-open {
   background-color: green;
 }
 
+.observe {
+  border-color: green;
+}
+
 .footer {
   background-color: var(--dark-bg-cl);
   padding-top: 60px;
